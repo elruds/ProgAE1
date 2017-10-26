@@ -8,21 +8,19 @@ public class LWMGUI extends JFrame
 	private JTextField enterName, enterQuantity, enterPrice, enterTransAmt, enterCurrentBal;
 	private JLabel name, quantity, price, winePurchased, transAmt, currentBal;
 	private JButton processSale, processReturn;
-
 	
 	public LWMGUI()	
 	{
 		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 setSize(700,300);
 		 setLocation(700,300);
-		 setTitle("Lilybank Wine Merchants: "); //creates JFrame object
+		 setTitle(""); //creates JFrame object
 		 
 		 layoutComponents();
 	}
 		
 	private void layoutComponents()
-	{
-		
+	{	
 		top = new JPanel();
 		top.setBackground(Color.lightGray);
 		

@@ -4,7 +4,7 @@ public class AssEx1 {
 
 	public static void main(String[]args)
 	{
-		String result = JOptionPane.showInputDialog(null, "Enter customer name"); {
+		String result = JOptionPane.showInputDialog("Enter customer name"); {
 																		//requests input of customer name
 
 			if ((!result.equals(null)) && (!result.equals(""))) {
@@ -25,6 +25,7 @@ public class AssEx1 {
 													 					//shows balance which was entered
 
 					LWMGUI frame = new LWMGUI();
+					frame.setTitle("Lilybank Wine Merchants: " + result);
 					frame.setVisible(true);
 				
 				}
