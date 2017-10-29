@@ -10,11 +10,15 @@ public class LWMGUI extends JFrame implements ActionListener
 	private JButton processSale, processReturn;
 	private Wine modelObject;
 	private LWMGUI viewObject;
+	private LWMGUI controllerObject;
 	private String result;
 	
+	public LWMGUI(Wine model) {
+		modelObject = model;
+	}
 	
-	public LWMGUI(Wine model)	
-	{
+	public LWMGUI(Wine model, LWMGUI controller)	
+	{	 
 		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 setSize(700,300);
 		 setLocation(700,300);
@@ -26,6 +30,7 @@ public class LWMGUI extends JFrame implements ActionListener
 		processReturn.addActionListener(this);
 		
 	}
+
 		
 	private void layoutComponents()
 	{	

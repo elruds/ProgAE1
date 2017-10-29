@@ -3,7 +3,11 @@ import javax.swing.JOptionPane;
 public class AssEx1 {
 
 	public static void main(String[]args)
-	{	LWMGUI frame = new LWMGUI();
+	{	Wine model = new Wine();
+		LWMGUI controller = new LWMGUI(model);	
+		LWMGUI view = new LWMGUI(model, controller);
+		controller.setView(view);
+		
 		String result = JOptionPane.showInputDialog("Enter customer name"); {
 																		//requests input of customer name
 
@@ -15,13 +19,13 @@ public class AssEx1 {
 			else {
 				JOptionPane.showMessageDialog(null, "Customer name: " + result + "", 
 									"Customer name", JOptionPane.INFORMATION_MESSAGE); //shows name
-				frame.setVisible(true);
+				view.setVisible(true);
 				
 			}
 		}
 	}
 }
-		
+		/*
 		for(;;) {		
 				
 				String result2 = JOptionPane.showInputDialog(null, "Enter customer's current balance");  
@@ -57,7 +61,7 @@ public class AssEx1 {
 				}
 
 				
-				
+				*/
 				
 				
 				
