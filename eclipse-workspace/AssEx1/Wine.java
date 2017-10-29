@@ -7,9 +7,15 @@ public class Wine {
 	private LWMGUI viewObject;
 	private LWMGUI controllerObject;
 	
-	public Wine (String wN, double pB, int nB) {
+	public Wine (String wN) {
 		wineName = wN;
+	}
+	
+	public Wine (double pB) {
 		priceBottle = pB;
+	}
+
+	public Wine(int nB) {
 		numBottles = nB;
 	}
 	
@@ -21,7 +27,7 @@ public class Wine {
 		return priceBottle;
 	}
 
-	public int getNumBottles() {
-		return numBottles;
+	public void numBottles(int num) {
+		
 	}
 }

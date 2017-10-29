@@ -109,7 +109,7 @@ public class LWMGUI extends JFrame implements ActionListener
 		String getQuant = viewObject.enterQuantity.getText().trim();
 		try {
 		int num = Integer.parseInt(getQuant);
-		modelObject.getNumBottles(num);
+		modelObject.numBottles(num);
 		}
 		catch (NumberFormatException nfx) {
 			JOptionPane.showMessageDialog(viewObject, "Enter a number", "Result summary", JOptionPane.ERROR_MESSAGE);
