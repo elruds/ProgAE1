@@ -101,14 +101,26 @@ public class LWMGUI extends JFrame implements ActionListener
 			System.out.print("You pressed processReturn");
 	}*/
 	
-	private void getEnterName() {
-		String getName = viewObject.enterName.getText().trim();
+	private void getWineName() {
+		String getName = viewObject.enterName.getText();
 	}
 	
+	private void getQuantity() {
+		String getQuant = viewObject.enterQuantity.getText().trim();
+		try {
+		int num = Integer.parseInt(getQuant);
+		modelObject.getNumBottles(num);
+		}
+		catch (NumberFormatException nfx) {
+			JOptionPane.showMessageDialog(viewObject, "Enter a number", "Result summary", JOptionPane.ERROR_MESSAGE);
+			viewObject.enterQuantity.setText("");
+		}
+	}
 	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == processSale) {
-			
+			this.getWineName();
+			this.getQuantity();
 		}
 		
 	}
