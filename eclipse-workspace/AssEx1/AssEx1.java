@@ -15,7 +15,13 @@ public class AssEx1 {
 			else {
 				JOptionPane.showMessageDialog(null, "Customer name: " + result + "", 
 									"Customer name", JOptionPane.INFORMATION_MESSAGE); //shows name
-		
+				frame.setVisible(true);
+				
+			}
+		}
+	}
+}
+		/*
 		for(;;) {		
 				
 				String result2 = JOptionPane.showInputDialog(null, "Enter customer's current balance");  
@@ -49,7 +55,7 @@ public class AssEx1 {
 				}
 				
 				}
-
+*/
 				
 				
 				

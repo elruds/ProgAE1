@@ -18,6 +18,10 @@ public class LWMGUI extends JFrame implements ActionListener
 		 setTitle("Lilybank Wine Merchants:" + result); //creates JFrame object
 		 
 		 layoutComponents();
+		 
+		processSale.addActionListener(this);
+		processReturn.addActionListener(this);
+		
 	}
 		
 	private void layoutComponents()
@@ -80,7 +84,17 @@ public class LWMGUI extends JFrame implements ActionListener
 		add(bottom, BorderLayout.SOUTH);
 		add(middle1, BorderLayout.CENTER);		//adds panels to JFrame
 
-		
-	}	
-		
+	
+}
+
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == processSale) 
+		{
+			System.out.print("You pressed processSale");
+		}
+		else
+			System.out.print("You pressed processReturn");
 	}
+	
+}
