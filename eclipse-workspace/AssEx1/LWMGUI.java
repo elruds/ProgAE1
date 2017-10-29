@@ -8,9 +8,12 @@ public class LWMGUI extends JFrame implements ActionListener
 	private JTextField enterName, enterQuantity, enterPrice, enterTransAmt, enterCurrentBal;
 	private JLabel name, quantity, price, winePurchased, transAmt, currentBal;
 	private JButton processSale, processReturn;
+	private Wine modelObject;
+	private LWMGUI viewObject;
 	private String result;
 	
-	public LWMGUI()	
+	
+	public LWMGUI(Wine model)	
 	{
 		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 setSize(700,300);
@@ -26,6 +29,7 @@ public class LWMGUI extends JFrame implements ActionListener
 		
 	private void layoutComponents()
 	{	
+		
 		top = new JPanel();
 		top.setBackground(Color.lightGray);
 		
@@ -88,13 +92,29 @@ public class LWMGUI extends JFrame implements ActionListener
 }
 
 
-	public void actionPerformed(ActionEvent e) {
+	/*public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == processSale) 
 		{
 			System.out.print("You pressed processSale");
 		}
 		else
 			System.out.print("You pressed processReturn");
+	}*/
+	
+	private void getEnterName() {
+		String getName = viewObject.enterName.getText().trim();
 	}
 	
+	
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == processSale) {
+			
+		}
+		
+	}
+	
+
+	public void setView(LWMGUI view) {
+		viewObject = view;
+	}
 }

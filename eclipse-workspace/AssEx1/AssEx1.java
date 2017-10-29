@@ -21,20 +21,20 @@ public class AssEx1 {
 		}
 	}
 }
-		/*
+		
 		for(;;) {		
 				
 				String result2 = JOptionPane.showInputDialog(null, "Enter customer's current balance");  
 				//requests input of current balance
 				
-				getCurrentBalance(result2);
+				getCurrentBalance();
 			
 		}
 			}
 		}
 	}
 
-				private static double getCurrentBalance(String result2) {
+				private static double getCurrentBalance() {
 				
 					try {
 						
@@ -55,7 +55,7 @@ public class AssEx1 {
 				}
 				
 				}
-*/
+
 				
 				
 				
