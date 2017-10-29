@@ -1,0 +1,17 @@
+---------
+05/24/17 21:43:52
+#<SignalException: SIGTERM>
+/Users/Lauren/.pia_manager/pia_manager.app/Contents/MacOS/run.rb:61:in `waitpid2'
+/Users/Lauren/.pia_manager/pia_manager.app/Contents/MacOS/run.rb:61:in `block in <encoded>'
+/Users/Lauren/.pia_manager/pia_manager.app/Contents/MacOS/run.rb:59:in `loop'
+/Users/Lauren/.pia_manager/pia_manager.app/Contents/MacOS/run.rb:59:in `<encoded>'
+/Users/Lauren/.pia_manager/pia_manager.app/Contents/MacOS/run.rb:2:in `load'
+/Users/Lauren/.pia_manager/pia_manager.app/Contents/MacOS/run.rb:2:in `<main>'---------
+06/16/17 22:15:26
+#<SignalException: SIGTERM>
+/Users/Lauren/.pia_manager/pia_manager.app/Contents/MacOS/run.rb:61:in `waitpid2'
+/Users/Lauren/.pia_manager/pia_manager.app/Contents/MacOS/run.rb:61:in `block in <encoded>'
+/Users/Lauren/.pia_manager/pia_manager.app/Contents/MacOS/run.rb:59:in `loop'
+/Users/Lauren/.pia_manager/pia_manager.app/Contents/MacOS/run.rb:59:in `<encoded>'
+/Users/Lauren/.pia_manager/pia_manager.app/Contents/MacOS/run.rb:2:in `load'
+/Users/Lauren/.pia_manager/pia_manager.app/Contents/MacOS/run.rb:2:in `<main>'
