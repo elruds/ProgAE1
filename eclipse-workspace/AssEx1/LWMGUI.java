@@ -2,19 +2,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class LWMGUI extends JFrame 
+public class LWMGUI extends JFrame implements ActionListener
 {
 	private JPanel top, middle1, middle2, bottom;
 	private JTextField enterName, enterQuantity, enterPrice, enterTransAmt, enterCurrentBal;
 	private JLabel name, quantity, price, winePurchased, transAmt, currentBal;
 	private JButton processSale, processReturn;
+	private String result;
 	
 	public LWMGUI()	
 	{
 		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 setSize(700,300);
 		 setLocation(700,300);
-		 setTitle(""); //creates JFrame object
+		 setTitle("Lilybank Wine Merchants:" + result); //creates JFrame object
 		 
 		 layoutComponents();
 	}
