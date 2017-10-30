@@ -21,7 +21,7 @@ public class LWMGUI extends JFrame implements ActionListener
 		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 setSize(700,300);
 		 setLocation(700,300);
-		 setTitle("Lilybank Wine Merchants:" + custName); //creates JFrame object
+		 setTitle("Lilybank Wine Merchants: " + custName); //creates JFrame object
 //		 modelObject = wineModel;
 //		 controllerObject = controller;
 //		 viewObject = view;

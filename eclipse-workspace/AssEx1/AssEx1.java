@@ -20,47 +20,37 @@ public class AssEx1 {
 				JOptionPane.showMessageDialog(null, "Customer name: " + name + "", 
 									"Customer name", JOptionPane.INFORMATION_MESSAGE); //shows name
 				
-				LWMGUI view = new LWMGUI(name);
-				view.setVisible(true);
+				
 			}
 		}
-	}
+	
+
+try {
+		
+		for(;;) {		
+				
+				String initBal = JOptionPane.showInputDialog(null, "Enter customer's current balance");  
+				//requests input of current balance
+				
+				initBal.trim();
+				
+				double d = Double.parseDouble(initBal);
+				
+				LWMGUI frame = new LWMGUI(name);
+				frame.setVisible(true);
+				
+		}
 }
 
+				
+				catch (NumberFormatException nfx) {
+					JOptionPane.showMessageDialog(null, "Please enter a number" + "", 
+							"Error", JOptionPane.ERROR_MESSAGE);
+				}
 		
-//		for(;;) {		
-//				
-//				String initBal = JOptionPane.showInputDialog(null, "Enter customer's current balance");  
-//				//requests input of current balance
-//				
-//				getCurrentBalance();
-//			
-//		}
-//			}
-//		}
-//	}
-//
-//				private static double getCurrentBalance() {
-//				
-//					try {
-//						
-//								initBal.trim();
-//								
-//									double d = Double.parseDouble(initBal);
-//									return d;
-//						}
-//					
-//						
-//								
-//								catch (NumberFormatException nfx) {
-//									JOptionPane.showMessageDialog(null, "Please enter a number" + "", 
-//											"Error", JOptionPane.ERROR_MESSAGE);
-//									
-//								}					
-//					
-//				}
-				
-				
+}
+}
+
 
 				
 				
