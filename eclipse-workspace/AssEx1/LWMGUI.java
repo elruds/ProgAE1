@@ -8,24 +8,26 @@ public class LWMGUI extends JFrame implements ActionListener
 	private JTextField enterName, enterQuantity, enterPrice, enterTransAmt, enterCurrentBal;
 	private JLabel name, quantity, price, winePurchased, transAmt, currentBal;
 	private JButton processSale, processReturn;
-	private Wine modelObject;
+	private Wine wineModel;
 	private LWMGUI viewObject;
 	private LWMGUI controllerObject;
 	private String custName;
 	
-//	Wine wineModel, LWMGUI controller, LWMGUI view, String custName
 	
+	public LWMGUI(String custName) {
+		
+	}
 	
-	public LWMGUI(String custName)	
+	public LWMGUI(Wine wineModel, LWMGUI controller, LWMGUI view)	
 	{	 
 		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 setSize(700,300);
 		 setLocation(700,300);
 		 setTitle("Lilybank Wine Merchants: " + custName); //creates JFrame object
-//		 modelObject = wineModel;
-//		 controllerObject = controller;
-//		 viewObject = view;
-//		 
+		 wineModel = this.wineModel;
+		 controllerObject = controller;
+		 viewObject = view;
+		 
 		 
 		 layoutComponents();
 		 
@@ -99,42 +101,73 @@ public class LWMGUI extends JFrame implements ActionListener
 	
 }
 
+//	String getName = this.enterName.getText();
+//	String getQuant = this.enterQuantity.getText().trim();
+//	
+//	public void actionPerformed(ActionEvent e) {
+//		if (e.getSource() == processSale) {
+//			wineModel.setWineName(getName);
+//			this.getQuantity();
+//			this.getPriceOne();
+//		}
+//			
+//			
 
-	/*public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == processSale) 
 		{
 			System.out.print("You pressed processSale");
 		}
 		else
 			System.out.print("You pressed processReturn");
-	}*/
-	
-	private void getWineName() {
-		String getName = viewObject.enterName.getText();
-	}
-	
-	private void getQuantity() {
-		String getQuant = viewObject.enterQuantity.getText().trim();
-		try {
-		int num = Integer.parseInt(getQuant);
-		modelObject.numBottles(num);
-		}
-		catch (NumberFormatException nfx) {
-			JOptionPane.showMessageDialog(viewObject, "Enter a number", "Result summary", JOptionPane.ERROR_MESSAGE);
-			viewObject.enterQuantity.setText("");
-		}
-	}
-	
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == processSale) {
-			this.getWineName();
-			this.getQuantity();
-		}
-		
-	}
-	
-
-	public void setView(LWMGUI view) {
-		viewObject = view;
 	}
 }
+	
+//	
+//	
+//	
+//		
+//	}
+//	
+//	
+//	
+//	private void getQuantity() {
+//				
+//		try {
+//			
+//		int num = Integer.parseInt(getQuant);
+//		wineModel.setNumBottles(num);
+//		}
+//		catch (NumberFormatException nfx) {
+//			JOptionPane.showMessageDialog(viewObject, "Enter a number", "Result summary", JOptionPane.ERROR_MESSAGE);
+//			viewObject.enterQuantity.setText("");
+//		}
+//	}
+//	
+//	private void getPriceOne() {
+//		String pOne = this.enterPrice.getText().trim();
+//	
+//		try {
+//			
+//			double priceOne = Double.parseDouble(pOne);
+//			wineModel.setPriceBottle(priceOne);
+//		}
+//		
+//		catch (NumberFormatException nfx) {
+//				JOptionPane.showMessageDialog(viewObject, "Enter a number", "Result summary", JOptionPane.ERROR_MESSAGE);
+//				viewObject.enterQuantity.setText("");
+//			
+//		}
+//
+//		
+//
+//			
+//		
+//	}
+//}
+//		
+//	
+//	
+//
+//
+//

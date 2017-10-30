@@ -26,7 +26,15 @@ public class Wine {
 		return priceBottle;
 	}
 
-	public void numBottles(int num) {
+	public int getNumBottles() {
+		return numBottles;
+	}
+	
+	public void setWineName(String getName) {this.wineName = getName;}
+	
+	public void setPriceBottle(double getPriceOne) {this.priceBottle = getPriceOne;}
+	
+	public void setNumBottles(int num) {this.numBottles = num;} 
 		
 	}
-}
+

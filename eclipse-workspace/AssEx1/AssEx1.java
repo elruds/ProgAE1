@@ -25,7 +25,7 @@ public class AssEx1 {
 		}
 	
 
-try {
+//try {
 		
 		for(;;) {		
 				
@@ -40,16 +40,18 @@ try {
 				frame.setVisible(true);
 				
 		}
+
+	}
 }
 
-				
-				catch (NumberFormatException nfx) {
-					JOptionPane.showMessageDialog(null, "Please enter a number" + "", 
-							"Error", JOptionPane.ERROR_MESSAGE);
-				}
-		
-}
-}
+//				
+//				catch (NumberFormatException nfx) {
+//					JOptionPane.showMessageDialog(null, "Please enter a number" + "", 
+//							"Error", JOptionPane.ERROR_MESSAGE);
+//				
+//		
+//}
+//}
 
 
 				
