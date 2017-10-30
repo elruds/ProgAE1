@@ -11,18 +11,21 @@ public class LWMGUI extends JFrame implements ActionListener
 	private Wine modelObject;
 	private LWMGUI viewObject;
 	private LWMGUI controllerObject;
-	private String result;
+	private String custName;
 	
-	public LWMGUI(Wine model) {
-		modelObject = model;
-	}
+//	Wine wineModel, LWMGUI controller, LWMGUI view, String custName
 	
-	public LWMGUI(Wine model, LWMGUI controller)	
+	
+	public LWMGUI(String custName)	
 	{	 
 		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 setSize(700,300);
 		 setLocation(700,300);
-		 setTitle("Lilybank Wine Merchants:" + result); //creates JFrame object
+		 setTitle("Lilybank Wine Merchants:" + custName); //creates JFrame object
+//		 modelObject = wineModel;
+//		 controllerObject = controller;
+//		 viewObject = view;
+//		 
 		 
 		 layoutComponents();
 		 

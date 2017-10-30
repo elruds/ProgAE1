@@ -5,14 +5,7 @@ public class Wine {
 	private double priceBottle = 0;
 	private int numBottles = 0;
 	
-	public Wine() {
-		
-	}
-		
-	public Wine(LWMGUI view, LWMGUI controller) {
-		
-	}
-	
+
 	public Wine (String wN) {
 		wineName = wN;
 	}
