@@ -12,21 +12,22 @@ public class LWMGUI extends JFrame implements ActionListener
 	private LWMGUI viewObject;
 	private LWMGUI controllerObject;
 	private String custName;
+	private String initBal;
 	
 	
-	public LWMGUI(String custName) {
+	public LWMGUI(Wine wineModel, LWMGUI controller, LWMGUI view)	 {
+		wineModel = this.wineModel;
+		controllerObject = controller;
+		viewObject = view;
 		
 	}
 	
-	public LWMGUI(Wine wineModel, LWMGUI controller, LWMGUI view)	
+	public LWMGUI(String custName, String initBal)
 	{	 
 		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 setSize(700,300);
 		 setLocation(700,300);
 		 setTitle("Lilybank Wine Merchants: " + custName); //creates JFrame object
-		 wineModel = this.wineModel;
-		 controllerObject = controller;
-		 viewObject = view;
 		 
 		 
 		 layoutComponents();
@@ -100,6 +101,10 @@ public class LWMGUI extends JFrame implements ActionListener
 
 	
 }
+	public void setInitBal() {
+	
+		enterCurrentBal.setText(initBal);
+	}
 
 //	String getName = this.enterName.getText();
 //	String getQuant = this.enterQuantity.getText().trim();

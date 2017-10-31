@@ -4,7 +4,7 @@ public class AssEx1 {
 
 	public static void main(String[]args) {
 //	{	Wine wineModel = new Wine();
-//		LWMGUI controller = new LWMGUI(wineModel);	
+//		LWMGUI controller = new LWMGUI();	
 //		LWMGUI view = controller;
 //		controller.setView(view);
 		
@@ -20,38 +20,76 @@ public class AssEx1 {
 				JOptionPane.showMessageDialog(null, "Customer name: " + name + "", 
 									"Customer name", JOptionPane.INFORMATION_MESSAGE); //shows name
 				
+			String initBal = JOptionPane.showInputDialog(null, "Enter customer's current balance");  
+//				//requests input of current balance
 				
-			}
-		}
-	
-
-//try {
+				String trimInitBal = initBal.trim();
 		
-		for(;;) {		
-				
-				String initBal = JOptionPane.showInputDialog(null, "Enter customer's current balance");  
-				//requests input of current balance
-				
-				initBal.trim();
-				
 				double d = Double.parseDouble(initBal);
 				
-				LWMGUI frame = new LWMGUI(name);
-				frame.setVisible(true);
+				JOptionPane.showMessageDialog(null, "Customer balance: " + d + "", 
+						"Current balance", JOptionPane.INFORMATION_MESSAGE);
 				
+				LWMGUI frame = new LWMGUI(name, trimInitBal);
+				frame.setVisible(true);
+				frame.setInitBal();
+		
 		}
+			}
+		
 
-	}
-}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
-//				
-//				catch (NumberFormatException nfx) {
-//					JOptionPane.showMessageDialog(null, "Please enter a number" + "", 
-//							"Error", JOptionPane.ERROR_MESSAGE);
-//				
+//try {
 //		
-//}
-//}
+//		for(;;) {		
+//				
+//				
+//				
+//				
+//
+//		}	
+//		}
+
+				
+//		
+//		catch (NumberFormatException nfx) {
+//			JOptionPane.showMessageDialog(null, "Please enter a number" + "", 
+//					"Error", JOptionPane.ERROR_MESSAGE);
+//		
+//	}
+
+				
+				
+				
+				
+				
+		
+}
+}	
 
 
 				
