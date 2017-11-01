@@ -8,24 +8,25 @@ public class LWMGUI extends JFrame implements ActionListener
 	private JTextField enterName, enterQuantity, enterPrice, enterTransAmt, enterCurrentBal;
 	private JLabel name, quantity, price, winePurchased, transAmt, currentBal;
 	private JButton processSale, processReturn;
-	private Wine wineModel;
-//	private LWMGUI viewObject;
+	//	private LWMGUI viewObject;
 //	private LWMGUI controllerObject;
 	private String custName;
 	private double initBal;
+	private Wine wineModel;
 	
+//	
+//	public LWMGUI(Wine wineModel)	 {
+//		wineModel = this.wineModel;
+////		controllerObject = controller;
+////		viewObject = view;
+//		
+//	}
 	
-	public LWMGUI(Wine wineModel)	 {
-		wineModel = this.wineModel;
-//		controllerObject = controller;
-//		viewObject = view;
-		
-	}
-	
-	public LWMGUI(String custName, double initBal)
+	public LWMGUI(String custName, double initBal, Wine wineModel)
 	{	 
 		 this.custName = custName;
 		 this.initBal = initBal;
+		 this.wineModel = wineModel;
 		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 setSize(700,300);
 		 setLocation(700,300);
@@ -114,14 +115,19 @@ public class LWMGUI extends JFrame implements ActionListener
 		
 		String getName = enterName.getText();
 		
-		if (e.getSource() == processSale) { //if user clicks processSale, set the wine name to what they have entered in the text field
-			Wine w = new Wine();
-			
-			if (getName != "") {
-				w.setWineName(getName);
+		if (e.getSource() == processSale) { 
+			Wine w = new Wine();				
+			if (getName != "") {				//if user clicks processSale and has entered text,
+				w.setWineName(getName);   /*set the wine name to what they have 
+											entered in the text field*/
 			}
 			
-			this.getQuantity();
+			else 
+				{w.resetFields();}			//if no text entered, reset fields
+			
+			
+			
+			getQuantity(w);
 			this.getPriceOne();
 		}
 			
@@ -146,24 +152,29 @@ public class LWMGUI extends JFrame implements ActionListener
 	
 	
 	
-	private void getQuantity() {
-				
-		try {
-		
-		String getQuant = enterQuantity.getText().trim();
-		int num = Integer.parseInt(getQuant);
-		if ((num < 1) && (num > 5000))
-		{
-			wineModel.resetFields();
-			JOptionPane.showMessageDialog(this, "Minimum order is 1 bottle and maximum order size is 5000 bottles", "Result summary", JOptionPane.ERROR_MESSAGE);
-			this.enterQuantity.setText("");
-		}
-		}
-		catch (NumberFormatException nfx) {
-			JOptionPane.showMessageDialog(this, "Enter a number", "Result summary", JOptionPane.ERROR_MESSAGE);
-			this.enterQuantity.setText("");
+	private void getQuantity(Wine w) {
 			
+		String getQuant = enterQuantity.getText().trim();
+		
+		try {
+				
+		int num = Integer.parseInt(getQuant);
+		if ((num >= 1) && (num <= 5000))
+		{
+			w.setNumBottles(num);
 		}
+		else 
+		{ 		JOptionPane.showMessageDialog(this, "Minimum order is 1 bottle and maximum order "
+		+ 		"is 5000 bottles", "Error", JOptionPane.ERROR_MESSAGE);
+				this.enterQuantity.setText("");
+				w.resetFields();
+		}
+		}		
+		catch (NumberFormatException nfx) {
+			JOptionPane.showMessageDialog(this, "Enter a whole number", "Error", JOptionPane.ERROR_MESSAGE);
+			this.enterQuantity.setText("");
+		}
+		
 		
 	}
 	
