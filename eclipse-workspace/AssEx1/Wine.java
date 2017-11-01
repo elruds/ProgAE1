@@ -8,16 +8,10 @@ public class Wine {
 		
 	}
 
-	public Wine (String wN) {
-		wineName = wN;
-	}
-	
-	public Wine (double pB) {
-		priceBottle = pB;
-	}
-
-	public Wine(int nB) {
-		numBottles = nB;
+	public Wine (String wN, double pB, int nB) {
+		this.wineName = wN;
+		this.priceBottle = pB;
+		this.numBottles = nB;
 	}
 	
 	public String getWineName() {

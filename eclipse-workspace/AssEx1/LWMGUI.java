@@ -22,7 +22,7 @@ public class LWMGUI extends JFrame implements ActionListener
 //		
 //	}
 	
-	public LWMGUI(String custName, double initBal, Wine wineModel)
+	public LWMGUI(String custName, double initBal, Wine wineModel, CustomerAccount accountModel)
 	{	 
 		 this.custName = custName;
 		 this.initBal = initBal;
@@ -120,18 +120,27 @@ public class LWMGUI extends JFrame implements ActionListener
 			if (getName != "") {				//if user clicks processSale and has entered text,
 				w.setWineName(getName);   /*set the wine name to what they have 
 											entered in the text field*/
+				
+				getQuantity(w);				//calls helper method to get num bottles
+				System.out.println(w.getWineName());		//for
+				System.out.println(w.getNumBottles()); 		//testing
+				getPriceOne(w);				//calls helper method to get price of one bottle
+				System.out.println(w.getPriceBottle()); 
+				
+				CustomerAccount accountModel = new CustomerAccount();
 			}
 			
 			else 
 				{w.resetFields();}			//if no text entered, reset fields
 			
-			
-			
-			getQuantity(w);
-			this.getPriceOne();
 		}
+	}
 			
-		System.out.print(getName);
+			
+			
+		
+			
+		
 			
 //
 //	public void actionPerformed(ActionEvent e) {
@@ -148,7 +157,7 @@ public class LWMGUI extends JFrame implements ActionListener
 	
 	
 		
-	}
+//	}
 	
 	
 	
@@ -165,31 +174,51 @@ public class LWMGUI extends JFrame implements ActionListener
 		}
 		else 
 		{ 		JOptionPane.showMessageDialog(this, "Minimum order is 1 bottle and maximum order "
-		+ 		"is 5000 bottles", "Error", JOptionPane.ERROR_MESSAGE);
+				+ "is 5000 bottles", "Error", JOptionPane.ERROR_MESSAGE);
 				this.enterQuantity.setText("");
+				
 				w.resetFields();
 		}
 		}		
 		catch (NumberFormatException nfx) {
 			JOptionPane.showMessageDialog(this, "Enter a whole number", "Error", JOptionPane.ERROR_MESSAGE);
 			this.enterQuantity.setText("");
+			
+			w.resetFields();
 		}
-		
 		
 	}
 	
-	private void getPriceOne() {
+	
+	private void getPriceOne(Wine w) {
+		
 		String pOne = this.enterPrice.getText().trim();
 	
 		try {
 			
 			double priceOne = Double.parseDouble(pOne);
-			wineModel.setPriceBottle(priceOne);
-		}
+			
+			if (priceOne > 0)
+			{
+				w.setPriceBottle(priceOne);
+			}
 		
+			else {
+				
+				
+				JOptionPane.showMessageDialog(this, "Price cannot be 0 or less! "
+				, "Error", JOptionPane.ERROR_MESSAGE);
+				this.enterQuantity.setText("");
+				
+				w.resetFields();
+			}
+			}
+			
 		catch (NumberFormatException nfx) {
 				JOptionPane.showMessageDialog(this, "Enter a number", "Result summary", JOptionPane.ERROR_MESSAGE);
 				this.enterQuantity.setText("");
+				
+				w.resetFields();
 			
 		}
 

@@ -4,9 +4,9 @@ import javax.swing.*;
 public class AssEx1 {
 
 	public static void main(String[]args) {
-		{
-//		LWMGUI frame = new LWMGUI(name, trimwineModel);
-//		LWMGUI view = controller;
+		{	Wine wineModel = new Wine();
+			CustomerAccount accountModel = new CustomerAccount();
+			
 		
 		
 		String name = JOptionPane.showInputDialog("Enter customer name"); {
@@ -25,27 +25,27 @@ public class AssEx1 {
 				
 				boolean noNumberEntered = false;
 		do {	String initBal = JOptionPane.showInputDialog(null, "Enter customer's current balance");  
-				//requests input of current balance
+				//requests input of initial balance
 			
 			 try {initBal.trim();
 		
 				double d = Double.parseDouble(initBal);
 				noNumberEntered = false;
-				LWMGUI frame = new LWMGUI(name, d);
-				frame.setInitBal();  //want current balance to appear in GUI 'current balance' text field
-				frame.setVisible(true);  
+				LWMGUI view = new LWMGUI(name, d, wineModel, accountModel);
+				view.setInitBal();  //prints initial balance to current balance textfield in view
+				view.setVisible(true);  
 		
 				break;
 			 }
 			 
-			catch (NumberFormatException nfx) {
+			catch (NumberFormatException nfx) {  
 				noNumberEntered = true;
 				JOptionPane.showMessageDialog(null, "Please enter a number" + "", 
 						"Error", JOptionPane.ERROR_MESSAGE);
 			}
 			}
 					
-			while (noNumberEntered==true);
+			while (noNumberEntered==true); //loop while no number entered
 				
 				
 		}	
