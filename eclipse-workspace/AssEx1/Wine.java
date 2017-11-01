@@ -1,4 +1,3 @@
-
 public class Wine {
 
 	private String wineName = "";
@@ -39,5 +38,10 @@ public class Wine {
 	
 	public void setNumBottles(int num) {this.numBottles = num;} 
 		
+	public void resetFields() {
+		
+		this.setWineName("");
+		this.setPriceBottle(0);
+		this.setNumBottles(0);
 	}
-
+	}

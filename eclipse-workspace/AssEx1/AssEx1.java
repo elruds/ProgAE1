@@ -1,9 +1,10 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
+
 
 public class AssEx1 {
 
 	public static void main(String[]args) {
-	{	Wine wineModel = new Wine();
+		{
 //		LWMGUI frame = new LWMGUI(name, trimwineModel);
 //		LWMGUI view = controller;
 		
@@ -22,33 +23,32 @@ public class AssEx1 {
 				
 				
 				
-				boolean invalid_input = false;
+				boolean noNumberEntered = false;
 		do {	String initBal = JOptionPane.showInputDialog(null, "Enter customer's current balance");  
 				//requests input of current balance
 			
-			 try {String trimInitBal = initBal.trim();
+			 try {initBal.trim();
 		
 				double d = Double.parseDouble(initBal);
-				invalid_input = false;
-				LWMGUI frame = new LWMGUI(name, trimInitBal);
-				frame.setVisible(true);
-				frame.setInitBal(); //want current balance to appear in GUI 'current balance' text field
-				JOptionPane.showMessageDialog(null, "Customer balance: " + d + "", 
-						"Current balance", JOptionPane.INFORMATION_MESSAGE);
+				noNumberEntered = false;
+				LWMGUI frame = new LWMGUI(name, d);
+				frame.setInitBal();  //want current balance to appear in GUI 'current balance' text field
+				frame.setVisible(true);  
+		
 				break;
 			 }
 			 
 			catch (NumberFormatException nfx) {
-				invalid_input = true;
+				noNumberEntered = true;
 				JOptionPane.showMessageDialog(null, "Please enter a number" + "", 
 						"Error", JOptionPane.ERROR_MESSAGE);
 			}
 			}
 					
-			while (invalid_input==true);
+			while (noNumberEntered==true);
 				
 				
-		}
+		}	
 			
 			
 			
@@ -77,18 +77,3 @@ public class AssEx1 {
 		
 		
 		
-		
-
-
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				  	

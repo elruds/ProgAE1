@@ -12,18 +12,20 @@ public class LWMGUI extends JFrame implements ActionListener
 //	private LWMGUI viewObject;
 //	private LWMGUI controllerObject;
 	private String custName;
-	private String initBal;
+	private double initBal;
 	
 	
-//	public LWMGUI(Wine wineModel)	 {
-//		wineModel = this.wineModel;
-////		controllerObject = controller;
-////		viewObject = view;
+	public LWMGUI(Wine wineModel)	 {
+		wineModel = this.wineModel;
+//		controllerObject = controller;
+//		viewObject = view;
 		
-//	}
+	}
 	
-	public LWMGUI(String custName, String initBal)
+	public LWMGUI(String custName, double initBal)
 	{	 
+		 this.custName = custName;
+		 this.initBal = initBal;
 		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 setSize(700,300);
 		 setLocation(700,300);
@@ -103,20 +105,27 @@ public class LWMGUI extends JFrame implements ActionListener
 }
 	public void setInitBal() {
 	
-		enterCurrentBal.setText(initBal);
+		enterCurrentBal.setText("" + initBal);
 	}
 
-	String getName = enterName.getText();
-	String getQuant = enterQuantity.getText().trim();
 	
+		
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == processSale) {
-			wineModel.setWineName(getName);
+		
+		String getName = enterName.getText();
+		
+		if (e.getSource() == processSale) { //if user clicks processSale, set the wine name to what they have entered in the text field
+			Wine w = new Wine();
+			
+			if (getName != "") {
+				w.setWineName(getName);
+			}
+			
 			this.getQuantity();
 			this.getPriceOne();
 		}
 			
-		
+		System.out.print(getName);
 			
 //
 //	public void actionPerformed(ActionEvent e) {
@@ -139,16 +148,24 @@ public class LWMGUI extends JFrame implements ActionListener
 	
 	private void getQuantity() {
 				
-//		try {
-			
+		try {
+		
+		String getQuant = enterQuantity.getText().trim();
 		int num = Integer.parseInt(getQuant);
-		wineModel.setNumBottles(num);
+		if ((num < 1) && (num > 5000))
+		{
+			wineModel.resetFields();
+			JOptionPane.showMessageDialog(this, "Minimum order is 1 bottle and maximum order size is 5000 bottles", "Result summary", JOptionPane.ERROR_MESSAGE);
+			this.enterQuantity.setText("");
 		}
-//		catch (NumberFormatException nfx) {
-//			JOptionPane.showMessageDialog(this, "Enter a number", "Result summary", JOptionPane.ERROR_MESSAGE);
-//			this.enterQuantity.setText("");
-//		}
-//	}
+		}
+		catch (NumberFormatException nfx) {
+			JOptionPane.showMessageDialog(this, "Enter a number", "Result summary", JOptionPane.ERROR_MESSAGE);
+			this.enterQuantity.setText("");
+			
+		}
+		
+	}
 	
 	private void getPriceOne() {
 		String pOne = this.enterPrice.getText().trim();
@@ -171,9 +188,6 @@ public class LWMGUI extends JFrame implements ActionListener
 		
 	}
 }
+
 		
-	
-	
-
-
-
+		
