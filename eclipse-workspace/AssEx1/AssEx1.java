@@ -5,7 +5,7 @@ public class AssEx1 {
 
 	public static void main(String[]args) {
 		{	Wine wineModel = new Wine();
-			CustomerAccount accountModel = new CustomerAccount();
+			
 			
 		
 		
@@ -20,7 +20,8 @@ public class AssEx1 {
 			else {
 				JOptionPane.showMessageDialog(null, "Customer name: " + name + "", 
 									"Customer name", JOptionPane.INFORMATION_MESSAGE); //shows name
-				
+				CustomerAccount accountModel = new CustomerAccount(name);
+				accountModel.setcName(name);
 				
 				
 				boolean noNumberEntered = false;

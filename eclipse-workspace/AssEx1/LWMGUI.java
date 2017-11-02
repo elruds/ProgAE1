@@ -5,7 +5,7 @@ import java.awt.event.*;
 public class LWMGUI extends JFrame implements ActionListener
 {
 	private JPanel top, middle1, middle2, bottom;
-	private JTextField enterName, enterQuantity, enterPrice, enterTransAmt, enterCurrentBal;
+	private JTextField enterWineName, enterQuantity, enterPrice, enterTransAmt, enterCurrentBal;
 	private JLabel name, quantity, price, winePurchased, transAmt, currentBal;
 	private JButton processSale, processReturn;
 	//	private LWMGUI viewObject;
@@ -50,8 +50,8 @@ public class LWMGUI extends JFrame implements ActionListener
 		name = new JLabel("Name: ");
 		top.add(name);
 		
-		enterName = new JTextField(20); 
-		top.add(enterName);						//creates text field labelled "Name"
+		enterWineName = new JTextField(20); 
+		top.add(enterWineName);						//creates text field labelled "Name"
 		
 		quantity = new JLabel("Quantity: ");
 		top.add(quantity);
@@ -115,12 +115,12 @@ public class LWMGUI extends JFrame implements ActionListener
 		
 	public void actionPerformed(ActionEvent e) {
 		
-		String getName = enterName.getText();
+		String getWineName = enterWineName.getText();
 		
 		if (e.getSource() == processSale) { 
 			Wine w = new Wine();				
-			if (getName != "") {				//if user clicks processSale and has entered text,
-				w.setWineName(getName);   /*set the wine name to what they have 
+			if (getWineName != "") {				//if user clicks processSale and has entered text,
+				w.setWineName(getWineName);   /*set the wine name to what they have 
 											entered in the text field*/
 				
 				getQuantity(w);				//calls helper method to get number of bottles
@@ -130,11 +130,12 @@ public class LWMGUI extends JFrame implements ActionListener
 				System.out.println(w.getPriceBottle()); 
 				
 				CustomerAccount c = new CustomerAccount();
+				System.out.println(c.getCname());
 				double sale = c.salePence(w.getNumBottles(), w.getPriceBottle());
 				enterTransAmt.setText("" + sale);
 				
 				double newBalance = sale + cBal;
-				System.out.println(newBalance); //for testing
+				enterCurrentBal.setText("" + newBalance); 
 				
 			}
 			
