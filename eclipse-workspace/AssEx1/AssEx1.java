@@ -32,7 +32,7 @@ public class AssEx1 {
 				double d = Double.parseDouble(initBal);
 				noNumberEntered = false;
 				LWMGUI view = new LWMGUI(name, d, wineModel, accountModel);
-				view.setInitBal();  //prints initial balance to current balance textfield in view
+				view.setCurrentBal();  //prints initial balance to current balance textfield in view
 				view.setVisible(true);  
 		
 				break;

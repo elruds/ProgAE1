@@ -1,39 +1,36 @@
 public class CustomerAccount{
 	
-	private int bPounds;
-	private int bPence;
+	private int balancePence;
 	private String cName;
 	private final double retCharge = 0.02;
 	
 	public CustomerAccount() {
 	}
 	
-	public CustomerAccount(int bPnds, int bPnce, String cName) {
-		this.bPounds = bPnds;
-		this.bPence = bPnce;
+	public CustomerAccount(int bPnce, String cName) {
+		this.balancePence = bPnce;
 		this.cName = cName;
 	}
 		
 	public CustomerAccount(int numBottles, double priceBottle)	{
 	}
 	
-	public int getBpnds() {
-		return bPounds;
-	}
 	 public int getBpnce() {
-		 return bPence;
+		 return balancePence;
 	 }
 	public String getCname() {
 		return cName;
 		
 	}
 	
-	public void setcName(String custName) {this.cName = custName;}
+	public void setcName(String custName) {this.cName = custName;} //method to return 
+																	//customer name
 	
-	public void setbPence(int numBottles, double priceBottle) {
-		
-		int totalPence = numBottles * (int)(priceBottle * 100);
-		
+	public double salePence(int numBottles, double priceBottle) { //method to process sale
+																  
+		int balancePence = numBottles * (int)(priceBottle * 100); {this.balancePence = balancePence;}
+		double totalTrans = (double)(balancePence / 100);
+		return totalTrans;
 	}
 	
 	

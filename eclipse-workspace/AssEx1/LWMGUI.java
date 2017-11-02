@@ -11,7 +11,7 @@ public class LWMGUI extends JFrame implements ActionListener
 	//	private LWMGUI viewObject;
 //	private LWMGUI controllerObject;
 	private String custName;
-	private double initBal;
+	private double cBal;
 	private Wine wineModel;
 	
 //	
@@ -22,10 +22,10 @@ public class LWMGUI extends JFrame implements ActionListener
 //		
 //	}
 	
-	public LWMGUI(String custName, double initBal, Wine wineModel, CustomerAccount accountModel)
+	public LWMGUI(String custName, double cBal, Wine wineModel, CustomerAccount accountModel)
 	{	 
 		 this.custName = custName;
-		 this.initBal = initBal;
+		 this.cBal = cBal;
 		 this.wineModel = wineModel;
 		 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 setSize(700,300);
@@ -104,10 +104,12 @@ public class LWMGUI extends JFrame implements ActionListener
 
 	
 }
-	public void setInitBal() {
+	public void setCurrentBal() {
 	
-		enterCurrentBal.setText("" + initBal);
+		enterCurrentBal.setText("" + cBal);
 	}
+	
+
 
 	
 		
@@ -121,13 +123,19 @@ public class LWMGUI extends JFrame implements ActionListener
 				w.setWineName(getName);   /*set the wine name to what they have 
 											entered in the text field*/
 				
-				getQuantity(w);				//calls helper method to get num bottles
+				getQuantity(w);				//calls helper method to get number of bottles
 				System.out.println(w.getWineName());		//for
 				System.out.println(w.getNumBottles()); 		//testing
 				getPriceOne(w);				//calls helper method to get price of one bottle
 				System.out.println(w.getPriceBottle()); 
 				
-				CustomerAccount accountModel = new CustomerAccount();
+				CustomerAccount c = new CustomerAccount();
+				double sale = c.salePence(w.getNumBottles(), w.getPriceBottle());
+				enterTransAmt.setText("" + sale);
+				
+				double newBalance = sale + cBal;
+				System.out.println(newBalance); //for testing
+				
 			}
 			
 			else 
