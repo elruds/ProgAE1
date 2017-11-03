@@ -21,7 +21,6 @@ public class AssEx1 {
 				JOptionPane.showMessageDialog(null, "Customer name: " + name + "", 
 									"Customer name", JOptionPane.INFORMATION_MESSAGE); //shows name
 				CustomerAccount accountModel = new CustomerAccount(name);
-				accountModel.setcName(name);
 				
 				
 				boolean noNumberEntered = false;

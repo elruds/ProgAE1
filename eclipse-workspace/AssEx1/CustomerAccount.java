@@ -2,37 +2,39 @@ public class CustomerAccount{
 	
 	private int balancePence;
 	private String cName;
-	private final double retCharge = 0.02;
+	private final double retCharge = 0.2;
 	
 	
 	public CustomerAccount() {				//constructor
 		
 	}
 	
-	public CustomerAccount(String cName) {	//constructor
-		this.cName = cName;
+	public CustomerAccount(String cName) {
+		
 	}
 	
-	public CustomerAccount(int bPnce) {		//constructor
+	public CustomerAccount(String cName, int bPnce, double retCharge) {	//constructor
+		this.cName = cName;
 		this.balancePence = bPnce;
 		
-	 }
-	public String getCname() {				//getter
-		return cName;
+	}
+	
+		
+	 
+	
+	public void setcName(String cName) { //method to set customer name		
 		
 	}
 	
-	public int getBalance() {
+	public String getCname() {				
+		return cName;
+	}
+	
+	public int setBalance() {			
 		return balancePence;
 	}
 	
-	public double getRetCharge() {
-		return retCharge;
-	}
 	
-	public void setcName(String cName) { //method to return customer name		//setter
-		
-	}
 																
 	public double wineSale(int numBottles, double priceBottle) { //method to process sale
 																  
