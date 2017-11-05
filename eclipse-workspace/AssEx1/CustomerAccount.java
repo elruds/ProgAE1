@@ -15,7 +15,7 @@ public class CustomerAccount{
 
 	public CustomerAccount(String cName, int bPnce) {	//constructor
 		this.cName = cName;
-		this.balancePence = bPnce * 100;
+		this.balancePence = bPnce;
 
 	}
 
@@ -31,7 +31,11 @@ public class CustomerAccount{
 	}
 
 	public double getBalance() {
-		return balancePence/100;
+		return balancePence;
+	}
+	
+	public double getBalanceInPounds() {
+		return balancePence/100.0;
 	}
 
 	public double wineTransaction(int numBottles, double priceBottle) { //method to process sale
@@ -47,7 +51,6 @@ public class CustomerAccount{
 	public void updateBalanceReturn(double newCost) {
 		double balance = (1 - retCharge) * newCost;  //20% return charge
 		balancePence -= balance;
-		System.out.println(balancePence);
 		
 
 

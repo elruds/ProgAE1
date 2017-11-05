@@ -101,8 +101,11 @@ public class LWMGUI extends JFrame implements ActionListener
 
 
 
-	public void printCurrentBal() {
-		enterCurrentBal.setText("" + custAcc.getBalance());
+	public void printCurrentBal() {		//method to print initial balance in textfield
+		
+		double initialBalance = custAcc.getBalanceInPounds();
+		String initialBal = String.format("%6.2f", initialBalance);
+		enterCurrentBal.setText(initialBal);
 	}
 
 
@@ -112,7 +115,8 @@ public class LWMGUI extends JFrame implements ActionListener
 		String wineName = enterWineName.getText();
 		
         if (!wineName.equals("")) {	//if user has entered text in wineName field
-        									
+        	winePurchased.setText(winePurchased.getText() + wineName);	
+        	
         	wine.setWineName(wineName);  //set wineName in Wine
         
         setQuantity();				//calls helper method to set number of bottles in Wine
@@ -137,8 +141,7 @@ public class LWMGUI extends JFrame implements ActionListener
 				}
 						           
 				
-				double currentBalance = custAcc.getBalance();
-				System.out.println(currentBalance);
+				double currentBalance = custAcc.getBalanceInPounds();
 				String displayCurrBal = String.format("%6.2f", currentBalance);
 				enterCurrentBal.setText(displayCurrBal);
 				this.clearFields();
@@ -177,7 +180,7 @@ public class LWMGUI extends JFrame implements ActionListener
 			}
 		}
 		catch (NumberFormatException nfx) {
-			JOptionPane.showMessageDialog(this, "Enter number of bottles", "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Enter whole number of bottles", "Error", JOptionPane.ERROR_MESSAGE);
 			enterQuantity.setText("");
 
 			wine.resetFields();

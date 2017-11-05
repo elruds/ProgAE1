@@ -18,7 +18,6 @@ public class AssEx1 {
 			}
 
 			else {
-				JOptionPane.showMessageDialog(null, "Customer name: " + name + "","Customer name", JOptionPane.INFORMATION_MESSAGE); //shows name
 
 				boolean noNumberEntered;
 				do {
@@ -27,10 +26,11 @@ public class AssEx1 {
 
 					try {
 						double initBalD = Double.parseDouble(initBal.trim());
-
-						CustomerAccount accountModel = new CustomerAccount(name, (int) initBalD);
+						double balInPence = initBalD * 100.0;
+						CustomerAccount accountModel = new CustomerAccount(name, (int) balInPence);
 						LWMGUI view = new LWMGUI(accountModel);
-						//view.setCurrentBal();  //prints initial balance to current balance textfield in view
+						 
+						view.printCurrentBal();  //prints initial balance to current balance textfield in view
 						view.setVisible(true);
 
 						break;
