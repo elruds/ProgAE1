@@ -4,7 +4,7 @@ import javax.swing.*;
 public class AssEx1 {
 
 	public static void main(String[]args) {
-		{	Wine wineModel = new Wine();
+		{	Wine newWine = new Wine();
 			
 			
 		
@@ -20,7 +20,7 @@ public class AssEx1 {
 			else {
 				JOptionPane.showMessageDialog(null, "Customer name: " + name + "", 
 									"Customer name", JOptionPane.INFORMATION_MESSAGE); //shows name
-				CustomerAccount accountModel = new CustomerAccount(name);
+				CustomerAccount accountModel = new CustomerAccount(newWine);
 				
 				
 				boolean noNumberEntered = false;
@@ -31,8 +31,8 @@ public class AssEx1 {
 		
 				double d = Double.parseDouble(initBal);
 				noNumberEntered = false;
-				LWMGUI view = new LWMGUI(name, d, wineModel, accountModel);
-				view.setCurrentBal();  //prints initial balance to current balance textfield in view
+				LWMGUI view = new LWMGUI(newWine, accountModel);
+				view.printCurrentBal();  //prints initial balance to current balance textfield in view
 				view.setVisible(true);  
 		
 				break;

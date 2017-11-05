@@ -99,7 +99,7 @@ public class LWMGUI extends JFrame implements ActionListener
 	
 	public void printCurrentBal() {
 	
-		enterCurrentBal.setText("" + custAcc.getbPnce());
+		enterCurrentBal.setText("" + (custAcc.getbPnce() / 100));
 	}
 
 	

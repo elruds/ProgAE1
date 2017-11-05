@@ -5,13 +5,19 @@ public class CustomerAccount{
 	private final double retCharge = 0.2;
 	
 	
-	public CustomerAccount() {				//constructor
+	public CustomerAccount(Wine w) {				//constructor
 		
 	}
 	
-	public CustomerAccount(String cName) {
+	public CustomerAccount(LWMGUI view) {
+		
 		
 	}
+	
+//	
+//	public CustomerAccount(String cName) {
+//		
+//	}
 	
 	public CustomerAccount(String cName, int bPnce, double retCharge) {	//constructor
 		this.cName = cName;
@@ -19,34 +25,30 @@ public class CustomerAccount{
 		
 	}
 	
-		
-	 
-	
-	public void setcName(String cName) { //method to set customer name		
-		
-	}
 	
 	public String getCname() {				
 		return cName;
 	}
 	
-	public int setBalance() {			
+	public int getbPnce() {
 		return balancePence;
 	}
 	
-	
 																
-	public double wineSale(int numBottles, double priceBottle) { //method to process sale
-																  
-		balancePence = numBottles * (int)(priceBottle * 100); 
-		double totalTrans = (double)(balancePence / 100);
-		return totalTrans;
+	public double wineSale(Wine w) { //method to process sale
+		
+		int totalPriceWine = w.getNumBottles() * (int)(w.getPriceBottle()* 100);
+		return totalPriceWine;
+//		balancePence += transaction;
+//		double balance = (double)(balancePence / 100);
+//		return balance;
 	}
 	
-	public void updateBalance(int balancePence) {
+	public void updateBalance(Wine w) {
 		
+		balancePence += this.wineSale(w);
 	}
-		
+	
 	
 	public double wineReturn(double totalTrans) { //method to process return
 		
