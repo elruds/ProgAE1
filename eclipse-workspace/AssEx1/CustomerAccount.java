@@ -1,58 +1,58 @@
 public class CustomerAccount{
-	
+
 	private int balancePence;
 	private String cName;
 	private final double retCharge = 0.2;
-	
-	
-	public CustomerAccount(Wine w) {				//constructor
-		
+
+
+	public CustomerAccount() {				//constructor
+
 	}
-	
-	public CustomerAccount(LWMGUI view) {
-		
-		
+
+	public CustomerAccount(String cName) {
+
 	}
-	
-//	
-//	public CustomerAccount(String cName) {
-//		
-//	}
-	
-	public CustomerAccount(String cName, int bPnce, double retCharge) {	//constructor
+
+	public CustomerAccount(String cName, int bPnce) {	//constructor
 		this.cName = cName;
-		this.balancePence = bPnce;
-		
+		this.balancePence = bPnce * 100;
+
 	}
-	
-	
-	public String getCname() {				
+
+
+
+
+	public void setcName(String cName) {
+		this.cName = cName;
+	}
+
+	public String getCname() {
 		return cName;
 	}
-	
-	public int getbPnce() {
-		return balancePence;
+
+	public double getBalance() {
+		return balancePence/100;
+	}
+
+	public double wineTransaction(int numBottles, double priceBottle) { //method to process sale
+		int totalCost = numBottles * (int)(priceBottle * 100);
+		return (double) totalCost;
+	}
+
+	public void updateBalanceSale(double newCost) {
+        balancePence += newCost;
+        
 	}
 	
-																
-	public double wineSale(Wine w) { //method to process sale
+	public void updateBalanceReturn(double newCost) {
+		double balance = (1 - retCharge) * newCost;  //20% return charge
+		balancePence -= balance;
+		System.out.println(balancePence);
 		
-		int totalPriceWine = w.getNumBottles() * (int)(w.getPriceBottle()* 100);
-		return totalPriceWine;
-//		balancePence += transaction;
-//		double balance = (double)(balancePence / 100);
-//		return balance;
-	}
-	
-	public void updateBalance(Wine w) {
+
+
 		
-		balancePence += this.wineSale(w);
-	}
-	
-	
-	public double wineReturn(double totalTrans) { //method to process return
 		
-		return totalTrans;
 	}
-	
+
 }		
