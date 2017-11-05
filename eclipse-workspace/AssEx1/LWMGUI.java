@@ -59,14 +59,14 @@ public class LWMGUI extends JFrame implements ActionListener
 
 		bottom = new JPanel();
 		bottom.setBackground(Color.GREEN);
-		transAmt = new JLabel("Amount of Transaction: ");
+		transAmt = new JLabel("Amount of Transaction: £");
 		bottom.add(transAmt);
 
 		enterTransAmt = new JTextField(10);
 		enterTransAmt.setEditable(false);
 		bottom.add(enterTransAmt);				//creates field to enter transaction amount
 
-		currentBal = new JLabel("Current balance: ");
+		currentBal = new JLabel("Current balance: £");
 		bottom.add(currentBal);
 
 		enterCurrentBal = new JTextField(10);	//creates field to enter current balance on account
@@ -101,7 +101,7 @@ public class LWMGUI extends JFrame implements ActionListener
 
 
 
-	public void printCurrentBal() {		//method to print initial balance in textfield
+	public void printCurrentBal() {		//method to print initial balance in text field
 		
 		double initialBalance = custAcc.getBalanceInPounds();
 		String initialBal = String.format("%6.2f", initialBalance);
@@ -115,7 +115,7 @@ public class LWMGUI extends JFrame implements ActionListener
 		String wineName = enterWineName.getText();
 		
         if (!wineName.equals("")) {	//if user has entered text in wineName field
-        	winePurchased.setText(winePurchased.getText() + wineName);	
+        	winePurchased.setText("Wine purchased: " + wineName);	
         	
         	wine.setWineName(wineName);  //set wineName in Wine
         
@@ -149,7 +149,7 @@ public class LWMGUI extends JFrame implements ActionListener
 			else {
 				wine.resetFields();
 				this.clearFields();
-			}			//if no text entered, reset fields
+			}			//if no text entered in for wine name, reset fields
 
 		}
 
