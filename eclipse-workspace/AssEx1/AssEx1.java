@@ -37,8 +37,15 @@ public class AssEx1 {
 						double balInPence = initBalD * 100.0; //converts to pence
 						CustomerAccount accountModel = new CustomerAccount(name, (int) balInPence);
 						LWMGUI view = new LWMGUI(accountModel);
+					
+						if (initBalD < 0) {
+							view.printCurrentBalCredit();
+						}
 						 
-						view.printCurrentBal();  //prints initial balance to current balance textfield in view
+						else {
+							view.printCurrentBal();  //prints initial balance to current balance textfield in view
+						}
+						
 						view.setVisible(true);
 
 						break;

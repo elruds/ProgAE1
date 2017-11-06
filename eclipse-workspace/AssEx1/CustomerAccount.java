@@ -42,11 +42,6 @@ public class CustomerAccount{
 		return (double) totalCost;
 	}
 	
-	
-//	public double wineTransaction(int numBottles, double priceBottle) { 
-//		int totalCost = numBottles * (int)(priceBottle * 100);
-//		return (double) totalCost;
-//	}
 
 	public void updateBalanceSale(double newCost) {
         balancePence += newCost;

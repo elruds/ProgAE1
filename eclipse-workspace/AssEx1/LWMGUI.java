@@ -108,7 +108,15 @@ public class LWMGUI extends JFrame implements ActionListener
 		enterCurrentBal.setText(initialBal);
 	}
 
-
+	public void printCurrentBalCredit() {
+		
+		double initialBalanceCredit = custAcc.getBalanceInPounds();
+		double initialBalCredit = initialBalanceCredit - (2 * initialBalanceCredit);
+		String initialCredit = String.format("CR %6.2f", initialBalCredit);
+		enterCurrentBal.setText(initialCredit);
+		
+	}
+		
 
 	public void actionPerformed(ActionEvent e) {
 
@@ -141,10 +149,22 @@ public class LWMGUI extends JFrame implements ActionListener
 						           
 				
 				double currentBalance = custAcc.getBalanceInPounds();
+				
+				if (currentBalance < 0) {
+					double currentBalanceNeg = currentBalance - (2 * currentBalance);
+					String currentBalanceNegative = String.format("CR %6.2f", currentBalanceNeg);
+					enterCurrentBal.setText(currentBalanceNegative);
+					this.clearFields();
+					
+				}
+				else {
 				String displayCurrBal = String.format("%6.2f", currentBalance);
 				enterCurrentBal.setText(displayCurrBal);
 				this.clearFields();
-			}
+				}
+        }
+			
+				
 			else {
 				wine.resetFields();
 				this.clearFields();
