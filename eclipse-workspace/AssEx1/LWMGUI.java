@@ -122,8 +122,7 @@ public class LWMGUI extends JFrame implements ActionListener
         setQuantity();				//calls helper method to set number of bottles in Wine
         setPriceOne();				//calls helper method to set price of one bottle in Wine
 
-        
-        double totalCost = custAcc.wineTransaction(wine.getNumBottles(), wine.getPriceBottle());
+        double totalCost = custAcc.wineTransaction(wine); 
         String transAmt = String.format("%6.2f", totalCost/100); //displays to two dec. places
         							
 				if (e.getSource() == processSale) {

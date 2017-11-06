@@ -3,7 +3,12 @@ public class CustomerAccount{
 	private int balancePence;
 	private String cName;
 	private final double retCharge = 0.2;
+	private Wine w;
+	
 
+	public CustomerAccount(Wine w) {
+		this.w = w;
+	}
 
 	public CustomerAccount(String cName) {
 
@@ -14,6 +19,7 @@ public class CustomerAccount{
 		this.balancePence = bPnce;
 
 	}
+
 
 	public void setcName(String cName) {
 		this.cName = cName;
@@ -30,11 +36,17 @@ public class CustomerAccount{
 	public double getBalanceInPounds() {
 		return balancePence/100.0;
 	}
-
-	public double wineTransaction(int numBottles, double priceBottle) { 
-		int totalCost = numBottles * (int)(priceBottle * 100);
+	
+	public double wineTransaction(Wine w) {
+		int totalCost = w.getNumBottles() * (int)(w.getPriceBottle()* 100);
 		return (double) totalCost;
 	}
+	
+	
+//	public double wineTransaction(int numBottles, double priceBottle) { 
+//		int totalCost = numBottles * (int)(priceBottle * 100);
+//		return (double) totalCost;
+//	}
 
 	public void updateBalanceSale(double newCost) {
         balancePence += newCost;
