@@ -21,7 +21,7 @@ public class LWMGUI extends JFrame implements ActionListener
 		this.wine = new Wine();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(700,300);
-		setLocation(700,300);
+		setLocation(0,0);
 		setTitle("Lilybank Wine Merchants: " + this.custAcc.getCname()); //creates JFrame object
 
 
@@ -150,7 +150,7 @@ public class LWMGUI extends JFrame implements ActionListener
 				
 				double currentBalance = custAcc.getBalanceInPounds();
 				
-				if (currentBalance < 0) {
+				if (currentBalance < 0) { //displays negative balances as positive with "CR" in front
 					double currentBalanceNeg = currentBalance - (2 * currentBalance);
 					String currentBalanceNegative = String.format("CR %6.2f", currentBalanceNeg);
 					enterCurrentBal.setText(currentBalanceNegative);
@@ -166,9 +166,12 @@ public class LWMGUI extends JFrame implements ActionListener
 			
 				
 			else {
+														
+				JOptionPane.showMessageDialog(this, "Please enter a wine name "
+						+ "", "Error", JOptionPane.ERROR_MESSAGE);
 				wine.resetFields();
 				this.clearFields();
-			}			//if no text entered in for wine name, reset fields
+			}			//if no text entered in for wine name
 
 		}
 
